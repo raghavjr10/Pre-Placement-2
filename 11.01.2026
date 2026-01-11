@@ -1,0 +1,68 @@
+1 - Two Sum II – Input Array Is Sorted
+Solution:
+def twoSum(numbers, target):
+    left, right = 0, len(numbers) - 1
+    while left < right:
+        s = numbers[left] + numbers[right]
+        if s == target:
+            return [left + 1, right + 1]
+        elif s < target:
+            left += 1
+        else:
+            right -= 1
+========================================================
+2 - Longest Substring without Repeating characters:
+Solution:
+def lengthOfLongestSubstring(s):
+    char_set = set()
+    left = 0
+    max_len = 0
+
+    for right in range(len(s)):
+        while s[right] in char_set:
+            char_set.remove(s[left])
+            left += 1
+        char_set.add(s[right])
+        max_len = max(max_len, right - left + 1)
+
+    return max_len
+================================================================
+3 - Valid Parentheses:
+Solution:
+def isValid(s):
+    stack = []
+    mapping = {')':'(', '}':'{', ']':'['}
+
+    for char in s:
+        if char in mapping:
+            if not stack or stack.pop() != mapping[char]:
+                return False
+        else:
+            stack.append(char)
+
+    return not stack
+=================================================================
+4 - Rotate Array:
+Solution:
+def rotate(nums, k):
+    k = k % len(nums)
+    nums[:] = nums[-k:] + nums[:-k]
+===================================================================
+5 - Product of Array Except Self:
+Solution:
+def productExceptSelf(nums):
+    n = len(nums)
+    res = [1] * n
+
+    left = 1
+    for i in range(n):
+        res[i] = left
+        left *= nums[i]
+
+    right = 1
+    for i in range(n - 1, -1, -1):
+        res[i] *= right
+        right *= nums[i]
+
+    return res
+=======================================================
