@@ -1,0 +1,29 @@
+1 - Alternating Digit sum:
+
+class Solution(object):
+    def alternateDigitSum(self, n):
+        n= int(str(n)[::-1])
+        position= 0
+        summation=0
+        while n>0:
+            digit=n%10
+            n//=10
+            if position%2==0:
+                summation+=digit
+                position+=1
+            else:
+                summation+=(-digit)
+                position+=1
+        return summation
+  =============================================================
+  2 - Separate digits n an array:
+
+  class Solution(object):
+    def separateDigits(self, nums):
+        res = []
+        for num in nums[::-1]:
+            while num:
+                res.append(num % 10)
+                num //= 10
+        return res[::-1]
+  ==================================================================
