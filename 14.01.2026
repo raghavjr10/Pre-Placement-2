@@ -1,0 +1,29 @@
+1 - Add pivot number:
+
+class Solution(object):
+    def pivotInteger(self, n):
+        x = sqrt(n * (n + 1) / 2)
+        
+        if x % 1 != 0:
+            return -1
+        else:
+            return int(x)
+=============================================
+2 - Convert the temperature:
+
+class Solution(object):
+    def convertTemperature(self, celsius):
+        Kelvin = celsius + 273.15
+        Fahrenheit = celsius * 1.80 + 32.00
+        return [Kelvin, Fahrenheit]
+==========================================
+3 - Digits hat divide a numbe:
+
+class Solution(object):
+    def countDigits(self, num):
+        str_num, count = str(num), 0
+        for digit in str_num:
+            if num % int(digit) == 0:
+                count += 1
+        return count
+=================================================
